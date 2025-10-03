@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List with Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+
+</head>
+<body class="bg-slate-900 text-gray-200 flex justify-center items-start min-h-screen pt-12 sm:pt-20 px-4">
+
+    <div class="w-full max-w-3xl bg-slate-800 p-6 sm:p-8 rounded-xl shadow-2xl">
+        <h1 class="text-center text-3xl sm:text-4xl font-bold mb-6 text-white">Todo List</h1>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-6">
+            <input type="text" id="task-input" placeholder="Add a new task..." class="flex-grow p-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full">
+            <input type="date" id="due-date-input" class="p-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto">
+            <button id="add-task-btn" class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors text-xl">+</button>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
+            <div class="w-full sm:w-auto">
+                <select id="filter-dropdown" class="w-full p-2.5 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <button id="delete-all-btn" class="w-full sm:w-auto px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition-colors">Delete All</button>
+        </div>
+        
+        <div class="bg-slate-900/50 rounded-lg">
+            <div class="hidden sm:flex items-center p-4 border-b border-slate-700 text-gray-400 font-semibold">
+                <div class="w-1/2">Task</div>
+                <div class="w-1/4 text-center">Due Date</div>
+                <div class="w-1/4 text-center">Actions</div>
+            </div>
+            
+            <ul id="task-list" class="space-y-2 p-2">
+                <li class="no-tasks-message text-center p-8 text-gray-500">No tasks found. Add one above!</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="confirmation-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+        <div class="bg-slate-800 p-8 rounded-lg shadow-2xl text-center max-w-sm mx-4">
+            <p id="modal-message" class="text-lg mb-6">Are you sure?</p>
+            <div class="flex justify-center gap-4">
+                <button id="modal-cancel-btn" class="px-6 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors">Cancel</button>
+                <button id="modal-confirm-btn" class="px-6 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition-colors">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+        body { font-family: 'Poppins', sans-serif; }
+        /* Style for the date picker icon */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.8);
+        }
